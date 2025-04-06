@@ -28,6 +28,7 @@ public class EventService {
     @Transactional
     public EventDTO insert (EventDTO dto) {
         Event entity = new Event(null, dto.getName(), dto.getDate(), dto.getUrl(), cityRepository.getReferenceById(dto.getCityId()));
+        entity = repository.save(entity);
         return new EventDTO(entity);
     }
 
